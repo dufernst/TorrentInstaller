@@ -37,6 +37,9 @@ namespace TorrentInstaller
         private ClientEngine clientEngine;
         private FastResume fastResume;
 
+        private int averagedUploadSpeed;
+        private int averagedDownloadSpeed;
+
         public WoWTorrent()
         {
             savePath = Environment.CurrentDirectory;
@@ -52,6 +55,9 @@ namespace TorrentInstaller
             w1.Close();
             StreamWriter w2 = File.AppendText(dhtNodesFile);
             w2.Close();
+
+            averagedUploadSpeed = 0;
+            averagedDownloadSpeed = 0;
 
             startEngine();
             startDHT();
@@ -207,9 +213,26 @@ namespace TorrentInstaller
             return torrentManager.Monitor.DownloadSpeed;
         }
 
+        public int getAveragedUploadSpeed()
+        {
+            averagedUploadSpeed = (averagedUploadSpeed * 4 + torrentManager.Monitor.UploadSpeed) / 5;
+            return averagedUploadSpeed;
+        }
+
+        public int getAveragedDownloadSpeed()
+        {
+            averagedDownloadSpeed = (averagedDownloadSpeed * 4 + torrentManager.Monitor.DownloadSpeed) / 5;
+            return averagedDownloadSpeed;
+        }
+
         public double getProgress()
         {
             return torrentManager.Progress;
+        }
+
+        public long getTorrentSize()
+        {
+            return torrent.Size;
         }
 
         public String getOtherStats()
@@ -239,7 +262,8 @@ namespace TorrentInstaller
                     "HOConnections: " + clientEngine.ConnectionManager.HalfOpenConnections + "\n" +
                     "MOConnections: " + clientEngine.ConnectionManager.MaxOpenConnections + "\n" +
                     "MHOConnections: " + clientEngine.ConnectionManager.MaxHalfOpenConnections + "\n" +
-                    "Fast resume used: " + usedFastResume + "\n";
+                    "Fast resume used: " + usedFastResume + "\n" +
+                    "Total download: " + torrent.Size + "\n";
         }
     }
 }

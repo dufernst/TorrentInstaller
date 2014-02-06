@@ -25,6 +25,10 @@ namespace TorrentInstaller
         private Thread updaterThread;
         private Updater updater;
 
+        private bool mouseDownOnTopBar;
+        private int mouseDownX;
+        private int mouseDownY;
+
         public MainWindow(WoWTorrent torrent)
         {
             updateValDelegate = new UpdateValuesDel(UpdateValues);
@@ -32,6 +36,7 @@ namespace TorrentInstaller
             wtorrent = torrent;
             InitializeComponent();
             initPlayButton();
+            initTopBar();
             initDownloadBar();
             CreateUpdaterThread();
         }
@@ -39,6 +44,7 @@ namespace TorrentInstaller
         private void MainWindowClosing(object sender, EventArgs e)
         {
             updaterThread.Abort();
+            wtorrent.Stop();
         }
 
         private void CreateUpdaterThread()
@@ -50,8 +56,8 @@ namespace TorrentInstaller
 
         public void UpdateValues()
         {
-            setUploadSpeed(wtorrent.getUploadSpeed());
-            setDownloadSpeed(wtorrent.getDownloadSpeed());
+            setUploadSpeed(wtorrent.getAveragedUploadSpeed());
+            setDownloadSpeed(wtorrent.getAveragedDownloadSpeed());
             setProgress((int)(wtorrent.getProgress()));
             debugInfo.Text = wtorrent.getOtherStats();
         }
@@ -63,15 +69,36 @@ namespace TorrentInstaller
             playButton.MouseLeave += new EventHandler(playLeave);
         }
 
+        private void initTopBar()
+        {
+            mouseDownOnTopBar = false;
+            closeButton.Click += new EventHandler(topCloseClick);
+            closeButton.MouseEnter += new EventHandler(topCloseEnter);
+            closeButton.MouseLeave += new EventHandler(topCloseLeave);
+            minimiseButton.Click += new EventHandler(topMinimiseClick);
+            minimiseButton.MouseEnter += new EventHandler(topMinimiseEnter);
+            minimiseButton.MouseLeave += new EventHandler(topMinimiseLeave);
+            windowbar.MouseDown += new MouseEventHandler(topBarMouseDown);
+            windowbar.MouseUp += new MouseEventHandler(topBarMouseUp);
+            windowbar.MouseMove += new MouseEventHandler(topBarMouseMove);
+        }
+
         private void initDownloadBar()
         {
             setProgress(0);
             initDownloadSpeed();
+            initRemaining();
         }
 
         private void setProgress(int progress)
         {
+            int cds = (currentDownloadSpeed == 0 ? 1 : currentDownloadSpeed);
+            long toDownload = ((100 - progress) * wtorrent.getTorrentSize()) / 100;
             downloadBar.Value = progress;
+            remainingStats.Text = "Time remaining:           " +
+                                  getTimeString(toDownload / cds) + "\n" +
+                                  "Download remaining: " +
+                                  getSizeString(toDownload);
         }
 
         private void initDownloadSpeed()
@@ -81,43 +108,58 @@ namespace TorrentInstaller
             setUploadSpeed(0);
         }
 
+        private void initRemaining()
+        {
+            remainingStats.Parent = mainframe;
+            remainingStats.Text = "Time remaining:     " + "\n" +
+                                  "Download remaining: ";
+        }
+
         private void setDownloadSpeed(int download)
         {
             currentDownloadSpeed = download;
-            downloadSpeed.Text = "Downloading:   " + getSpeedString(currentDownloadSpeed) + "\n" +
-                             "Uploading:         " + getSpeedString(currentUploadSpeed);
+            downloadSpeed.Text = "Downloading:   " + getSizeString(currentDownloadSpeed) + "/s\n" +
+                             "Uploading:         " + getSizeString(currentUploadSpeed) + "/s";
         }
 
         private void setUploadSpeed(int upload)
         {
             currentUploadSpeed = upload;
-            downloadSpeed.Text = "Downloading:   " + getSpeedString(currentDownloadSpeed) + "\n" +
-                             "Uploading:         " + getSpeedString(currentUploadSpeed);
+            downloadSpeed.Text = "Downloading:   " + getSizeString(currentDownloadSpeed) + "/s\n" +
+                             "Uploading:         " + getSizeString(currentUploadSpeed) + "/s";
         }
 
-        private String getSpeedString(int speed)
+        private String getSizeString(long size)
         {
-            double dspeed = (double)speed;
-            dspeed = dspeed / 1024;
+            if (size < 0)
+                return "wtf";
+
+            double dsize = (double)size;
+            dsize = dsize / 1024;
             String ex;
 
-            if (dspeed / 1000 >= 1.0 && (dspeed / 1000) / 1000 < 1.0)
+            if (dsize / 1000 >= 1.0 && (dsize / 1000) / 1000 < 1.0)
             {
-                dspeed = Math.Truncate((dspeed / 1024) * 100) / 100;
-                ex = "MB/s";
+                dsize = Math.Truncate((dsize / 1024) * 100) / 100;
+                ex = "MB";
             }
-            else if ((dspeed / 1000) / 1000 >= 1.0)
+            else if ((dsize / 1000) / 1000 >= 1.0)
             {
-                dspeed = Math.Truncate(((dspeed / 1024) / 1024) * 100) / 100;
-                ex = "GB/s";
+                dsize = Math.Truncate(((dsize / 1024) / 1024) * 100) / 100;
+                ex = "GB";
             }
             else
             {
-                dspeed = Math.Truncate(dspeed * 100) / 100;
-                ex = "KB/s";
+                dsize = Math.Truncate(dsize * 100) / 100;
+                ex = "KB";
             }
 
-            return dspeed + "  " + ex;
+            return dsize + "  " + ex;
+        }
+
+        private String getTimeString(long seconds)
+        {
+            return "";
         }
 
         private void playClick(object sender, EventArgs e)
@@ -133,6 +175,59 @@ namespace TorrentInstaller
         private void playLeave(object sender, EventArgs e)
         {
             playButton.Image = Properties.Resources.Play_No_Hover;
+        }
+
+        private void topCloseClick(object sender, EventArgs e)
+        {
+            closeButton.Image = Properties.Resources.Top_Bar_Close_Click;
+            this.Close();
+        }
+
+        private void topCloseEnter(object sender, EventArgs e)
+        {
+            closeButton.Image = Properties.Resources.Top_Bar_Close_Hover;
+        }
+
+        private void topCloseLeave(object sender, EventArgs e)
+        {
+            closeButton.Image = Properties.Resources.Top_Bar_Close_Normal;
+        }
+
+        private void topMinimiseClick(object sender, EventArgs e)
+        {
+            minimiseButton.Image = Properties.Resources.Top_Bar_Minimize_Click;
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void topMinimiseEnter(object sender, EventArgs e)
+        {
+            minimiseButton.Image = Properties.Resources.Top_Bar_Minimize_Hover;
+        }
+
+        private void topMinimiseLeave(object sender, EventArgs e)
+        {
+            minimiseButton.Image = Properties.Resources.Top_Bar_Minimize_Normal;
+        }
+
+        private void topBarMouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownOnTopBar = true;
+            mouseDownX = e.X;
+            mouseDownY = e.Y;
+        }
+
+        private void topBarMouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDownOnTopBar = false;
+        }
+
+        private void topBarMouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDownOnTopBar)
+            {
+                this.Location = new Point(this.Left + e.X - mouseDownX,
+                                        this.Top + e.Y - mouseDownY);
+            }
         }
     }
 }

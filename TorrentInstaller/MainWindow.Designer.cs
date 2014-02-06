@@ -29,13 +29,51 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            this.downloadBar = new System.Windows.Forms.ProgressBar();
+            this.debugInfo = new System.Windows.Forms.Label();
+            this.windowbar = new System.Windows.Forms.PictureBox();
             this.playButton = new System.Windows.Forms.Button();
             this.mainframe = new System.Windows.Forms.PictureBox();
-            this.downloadBar = new System.Windows.Forms.ProgressBar();
+            this.remainingStats = new TorrentInstaller.TransparentLabel();
             this.downloadSpeed = new TorrentInstaller.TransparentLabel();
-            this.debugInfo = new System.Windows.Forms.Label();
+            this.closeButton = new System.Windows.Forms.PictureBox();
+            this.minimiseButton = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.windowbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainframe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimiseButton)).BeginInit();
             this.SuspendLayout();
+            // 
+            // downloadBar
+            // 
+            this.downloadBar.Location = new System.Drawing.Point(20, 534);
+            this.downloadBar.Margin = new System.Windows.Forms.Padding(0);
+            this.downloadBar.Name = "downloadBar";
+            this.downloadBar.Size = new System.Drawing.Size(592, 23);
+            this.downloadBar.Step = 1;
+            this.downloadBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.downloadBar.TabIndex = 2;
+            // 
+            // debugInfo
+            // 
+            this.debugInfo.AutoSize = true;
+            this.debugInfo.Font = new System.Drawing.Font("Gentium Book Basic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.debugInfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.debugInfo.Location = new System.Drawing.Point(51, 142);
+            this.debugInfo.Name = "debugInfo";
+            this.debugInfo.Size = new System.Drawing.Size(77, 17);
+            this.debugInfo.TabIndex = 4;
+            this.debugInfo.Text = "Debug Info";
+            // 
+            // windowbar
+            // 
+            this.windowbar.BackgroundImage = global::TorrentInstaller.Properties.Resources.Top_Bar;
+            this.windowbar.Location = new System.Drawing.Point(-4, 0);
+            this.windowbar.Margin = new System.Windows.Forms.Padding(0);
+            this.windowbar.Name = "windowbar";
+            this.windowbar.Size = new System.Drawing.Size(804, 29);
+            this.windowbar.TabIndex = 6;
+            this.windowbar.TabStop = false;
             // 
             // playButton
             // 
@@ -45,7 +83,7 @@
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
-            this.playButton.Location = new System.Drawing.Point(645, 497);
+            this.playButton.Location = new System.Drawing.Point(645, 526);
             this.playButton.Margin = new System.Windows.Forms.Padding(0);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(140, 84);
@@ -57,22 +95,25 @@
             // 
             this.mainframe.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainframe.BackgroundImage = global::TorrentInstaller.Properties.Resources.LauncherOuter;
-            this.mainframe.Location = new System.Drawing.Point(-3, -2);
+            this.mainframe.Location = new System.Drawing.Point(-3, 28);
             this.mainframe.Margin = new System.Windows.Forms.Padding(0);
             this.mainframe.Name = "mainframe";
             this.mainframe.Size = new System.Drawing.Size(804, 599);
             this.mainframe.TabIndex = 0;
             this.mainframe.TabStop = false;
             // 
-            // downloadBar
+            // remainingStats
             // 
-            this.downloadBar.Location = new System.Drawing.Point(20, 505);
-            this.downloadBar.Margin = new System.Windows.Forms.Padding(0);
-            this.downloadBar.Name = "downloadBar";
-            this.downloadBar.Size = new System.Drawing.Size(592, 23);
-            this.downloadBar.Step = 1;
-            this.downloadBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.downloadBar.TabIndex = 2;
+            this.remainingStats.AutoSize = true;
+            this.remainingStats.BackColor = System.Drawing.Color.Transparent;
+            this.remainingStats.Font = new System.Drawing.Font("GiovanniITCTT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remainingStats.ForeColor = System.Drawing.Color.Chocolate;
+            this.remainingStats.Location = new System.Drawing.Point(429, 566);
+            this.remainingStats.Margin = new System.Windows.Forms.Padding(0);
+            this.remainingStats.Name = "remainingStats";
+            this.remainingStats.Size = new System.Drawing.Size(101, 15);
+            this.remainingStats.TabIndex = 5;
+            this.remainingStats.Text = "Time remaining:";
             // 
             // downloadSpeed
             // 
@@ -80,23 +121,30 @@
             this.downloadSpeed.BackColor = System.Drawing.Color.Transparent;
             this.downloadSpeed.Font = new System.Drawing.Font("GiovanniITCTT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadSpeed.ForeColor = System.Drawing.Color.Chocolate;
-            this.downloadSpeed.Location = new System.Drawing.Point(19, 537);
+            this.downloadSpeed.Location = new System.Drawing.Point(19, 566);
             this.downloadSpeed.Margin = new System.Windows.Forms.Padding(0);
             this.downloadSpeed.Name = "downloadSpeed";
             this.downloadSpeed.Size = new System.Drawing.Size(87, 15);
             this.downloadSpeed.TabIndex = 3;
             this.downloadSpeed.Text = "Downloading:";
             // 
-            // debugInfo
+            // closeButton
             // 
-            this.debugInfo.AutoSize = true;
-            this.debugInfo.Font = new System.Drawing.Font("Gentium Book Basic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debugInfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.debugInfo.Location = new System.Drawing.Point(51, 113);
-            this.debugInfo.Name = "debugInfo";
-            this.debugInfo.Size = new System.Drawing.Size(77, 17);
-            this.debugInfo.TabIndex = 4;
-            this.debugInfo.Text = "Debug Info";
+            this.closeButton.BackgroundImage = global::TorrentInstaller.Properties.Resources.Top_Bar_Close_Normal;
+            this.closeButton.Location = new System.Drawing.Point(776, 4);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(20, 20);
+            this.closeButton.TabIndex = 9;
+            this.closeButton.TabStop = false;
+            // 
+            // minimiseButton
+            // 
+            this.minimiseButton.BackgroundImage = global::TorrentInstaller.Properties.Resources.Top_Bar_Minimize_Normal;
+            this.minimiseButton.Location = new System.Drawing.Point(754, 4);
+            this.minimiseButton.Name = "minimiseButton";
+            this.minimiseButton.Size = new System.Drawing.Size(20, 20);
+            this.minimiseButton.TabIndex = 10;
+            this.minimiseButton.TabStop = false;
             // 
             // MainWindow
             // 
@@ -104,17 +152,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(800, 595);
+            this.ClientSize = new System.Drawing.Size(800, 624);
+            this.Controls.Add(this.minimiseButton);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.windowbar);
+            this.Controls.Add(this.remainingStats);
             this.Controls.Add(this.debugInfo);
             this.Controls.Add(this.downloadSpeed);
             this.Controls.Add(this.downloadBar);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.mainframe);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Cataclysm Launcher";
+            ((System.ComponentModel.ISupportInitialize)(this.windowbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainframe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimiseButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +183,10 @@
         private System.Windows.Forms.ProgressBar downloadBar;
         private TransparentLabel downloadSpeed;
         private System.Windows.Forms.Label debugInfo;
+        private TransparentLabel remainingStats;
+        private System.Windows.Forms.PictureBox windowbar;
+        private System.Windows.Forms.PictureBox closeButton;
+        private System.Windows.Forms.PictureBox minimiseButton;
     }
 }
 
