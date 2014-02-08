@@ -198,6 +198,11 @@ namespace TorrentInstaller
             clientEngine.Dispose();
         }
 
+        public void setSettings()
+        {
+            torrentManager.Settings.MaxDownloadSpeed = 100;
+        }
+
         public int getUsedPort()
         {
             return listenPort;

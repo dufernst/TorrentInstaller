@@ -13,7 +13,7 @@ namespace TorrentInstaller
 {
     public class TransparentLabel : Label
     {
-        public TransparentLabel()
+        public TransparentLabel() : base()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = System.Drawing.Color.Transparent;

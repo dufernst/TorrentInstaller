@@ -103,14 +103,20 @@ namespace TorrentInstaller
 
         private void initDownloadSpeed()
         {
-            downloadSpeed.Parent = mainframe;
+            downloadSpeed.Parent = bottomBar;
+            // when changing the parent the location becomes relative to the new parent
+            downloadSpeed.Location = new Point(downloadSpeed.Location.X - downloadSpeed.Parent.Location.X,
+                                                downloadSpeed.Location.Y - downloadSpeed.Parent.Location.Y);
             setDownloadSpeed(0);
             setUploadSpeed(0);
         }
 
         private void initRemaining()
         {
-            remainingStats.Parent = mainframe;
+            remainingStats.Parent = bottomBar;
+            // when changing the parent the location becomes relative to the new parent
+            remainingStats.Location = new Point(remainingStats.Location.X - remainingStats.Parent.Location.X,
+                                                remainingStats.Location.Y - remainingStats.Parent.Location.Y);
             remainingStats.Text = "Time remaining:     " + "\n" +
                                   "Download remaining: ";
         }
@@ -159,7 +165,24 @@ namespace TorrentInstaller
 
         private String getTimeString(long seconds)
         {
-            return "";
+            String result = "";
+            long minutes = (long) Math.Floor( (double) seconds / 60.0);
+            long hours = (long)Math.Floor( (double) minutes / 60);
+            long days = (long)Math.Floor((double) hours / 24);
+
+            if (days > 0)
+                result += days + "d  ";
+            if (hours > 0)
+                result += hours % 24 + "h  ";
+            if (minutes > 0 && days == 0)
+                result += minutes % 60 + "m  ";
+            if (seconds > 0 && hours == 0)
+                result += seconds % 60 + "s";
+
+            if (days > 14)
+                result = ".....";
+
+            return result;
         }
 
         private void playClick(object sender, EventArgs e)
