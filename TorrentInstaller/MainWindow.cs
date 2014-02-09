@@ -29,6 +29,8 @@ namespace TorrentInstaller
         private int mouseDownX;
         private int mouseDownY;
 
+        private bool isComplete;
+
         public MainWindow(WoWTorrent torrent)
         {
             updateValDelegate = new UpdateValuesDel(UpdateValues);
@@ -59,6 +61,16 @@ namespace TorrentInstaller
             setUploadSpeed(wtorrent.getAveragedUploadSpeed());
             setDownloadSpeed(wtorrent.getAveragedDownloadSpeed());
             setProgress((int)(wtorrent.getProgress()));
+
+            if (!isComplete)
+            {
+                if (wtorrent.isComplete())
+                {
+                    playButton.Image = Properties.Resources.Play_No_Hover;
+                    isComplete = true;
+                }
+            }
+
             debugInfo.Text = wtorrent.getOtherStats();
         }
 
@@ -187,17 +199,20 @@ namespace TorrentInstaller
 
         private void playClick(object sender, EventArgs e)
         {
-            playButton.Image = Properties.Resources.PlayButtonPress;
+            if (isComplete)
+                playButton.Image = Properties.Resources.PlayButtonPress;
         }
 
         private void playEnter(object sender, EventArgs e)
         {
-            playButton.Image = Properties.Resources.Play_Hover;
+            if (isComplete)
+                playButton.Image = Properties.Resources.Play_Hover;
         }
 
         private void playLeave(object sender, EventArgs e)
         {
-            playButton.Image = Properties.Resources.Play_No_Hover;
+            if (isComplete)
+                playButton.Image = Properties.Resources.Play_No_Hover;
         }
 
         private void topCloseClick(object sender, EventArgs e)

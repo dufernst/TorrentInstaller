@@ -203,6 +203,11 @@ namespace TorrentInstaller
             torrentManager.Settings.MaxDownloadSpeed = 100;
         }
 
+        public bool isComplete()
+        {
+            return torrentManager.Complete;
+        }
+
         public int getUsedPort()
         {
             return listenPort;

@@ -111,7 +111,7 @@
             this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
+            this.playButton.Image = global::TorrentInstaller.Properties.Resources.PlayButtonDisabled;
             this.playButton.Location = new System.Drawing.Point(643, 524);
             this.playButton.Margin = new System.Windows.Forms.Padding(0);
             this.playButton.Name = "playButton";
