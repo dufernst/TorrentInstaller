@@ -205,4 +205,49 @@
   <data name="Progress_Bar_Updating_Head" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\00026[17x7x24BPP].jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Setting_Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00086[520x503x24BPP].jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Accept_Button_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00079[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Accept_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00081[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Accept_Button_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00080[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Accept_Button_Not_Usable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00078[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_Button_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00067[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00069[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_Button_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00068[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_Button_Not_Usable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00066[91x32x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Restore_Default_Click" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00087[181x21x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Restore_Default_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00089[181x21x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Restore_Default_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00088[181x21x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Restore_Default_Not_Usable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00086[181x21x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExSign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00026[64x63x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QuSign" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\00027[64x63x8BPP].png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

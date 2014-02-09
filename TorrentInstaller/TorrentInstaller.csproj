@@ -68,7 +68,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsMenu.Designer.cs">
+      <DependentUpon>SettingsMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Torrent.cs" />
+    <Compile Include="TransparentPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TransparentLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -80,6 +90,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsMenu.resx">
+      <DependentUpon>SettingsMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,6 +183,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\00026[17x7x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00086[520x503x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00086[181x21x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00087[181x21x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00088[181x21x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00089[181x21x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00066[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00067[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00068[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00069[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00078[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00079[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00080[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00081[91x32x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00026[64x63x8BPP].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00027[64x63x8BPP].png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

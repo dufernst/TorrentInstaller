@@ -30,20 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.debugInfo = new System.Windows.Forms.Label();
+            this.remainingStats = new TorrentInstaller.TransparentLabel();
+            this.downloadSpeed = new TorrentInstaller.TransparentLabel();
             this.minimiseButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.windowbar = new System.Windows.Forms.PictureBox();
             this.playButton = new System.Windows.Forms.Button();
             this.bottomBar = new System.Windows.Forms.PictureBox();
             this.imageBox = new System.Windows.Forms.PictureBox();
+            this.optionMenu = new TorrentInstaller.TransparentPictureBox();
+            this.settingsMenu = new TorrentInstaller.SettingsMenu();
             this.progressBar = new TorrentInstaller.AnimatedProgressBar();
-            this.remainingStats = new TorrentInstaller.TransparentLabel();
-            this.downloadSpeed = new TorrentInstaller.TransparentLabel();
             ((System.ComponentModel.ISupportInitialize)(this.minimiseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.optionMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +60,32 @@
             this.debugInfo.Size = new System.Drawing.Size(77, 17);
             this.debugInfo.TabIndex = 4;
             this.debugInfo.Text = "Debug Info";
+            // 
+            // remainingStats
+            // 
+            this.remainingStats.AutoSize = true;
+            this.remainingStats.BackColor = System.Drawing.Color.Transparent;
+            this.remainingStats.Font = new System.Drawing.Font("GiovanniITCTT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remainingStats.ForeColor = System.Drawing.Color.Chocolate;
+            this.remainingStats.Location = new System.Drawing.Point(414, 578);
+            this.remainingStats.Margin = new System.Windows.Forms.Padding(0);
+            this.remainingStats.Name = "remainingStats";
+            this.remainingStats.Size = new System.Drawing.Size(101, 15);
+            this.remainingStats.TabIndex = 5;
+            this.remainingStats.Text = "Time remaining:";
+            // 
+            // downloadSpeed
+            // 
+            this.downloadSpeed.AutoSize = true;
+            this.downloadSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.downloadSpeed.Font = new System.Drawing.Font("GiovanniITCTT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.downloadSpeed.ForeColor = System.Drawing.Color.Chocolate;
+            this.downloadSpeed.Location = new System.Drawing.Point(19, 578);
+            this.downloadSpeed.Margin = new System.Windows.Forms.Padding(0);
+            this.downloadSpeed.Name = "downloadSpeed";
+            this.downloadSpeed.Size = new System.Drawing.Size(87, 15);
+            this.downloadSpeed.TabIndex = 3;
+            this.downloadSpeed.Text = "Downloading:";
             // 
             // minimiseButton
             // 
@@ -120,6 +149,25 @@
             this.imageBox.TabIndex = 12;
             this.imageBox.TabStop = false;
             // 
+            // optionMenu
+            // 
+            this.optionMenu.BackColor = System.Drawing.Color.Transparent;
+            this.optionMenu.BackgroundImage = global::TorrentInstaller.Properties.Resources.ExSign;
+            this.optionMenu.Location = new System.Drawing.Point(719, 47);
+            this.optionMenu.Name = "optionMenu";
+            this.optionMenu.Size = new System.Drawing.Size(64, 63);
+            this.optionMenu.TabIndex = 15;
+            this.optionMenu.TabStop = false;
+            // 
+            // settingsMenu
+            // 
+            this.settingsMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("settingsMenu.BackgroundImage")));
+            this.settingsMenu.Location = new System.Drawing.Point(166, 59);
+            this.settingsMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.settingsMenu.Name = "settingsMenu";
+            this.settingsMenu.Size = new System.Drawing.Size(460, 410);
+            this.settingsMenu.TabIndex = 14;
+            // 
             // progressBar
             // 
             this.progressBar.BackgroundImage = global::TorrentInstaller.Properties.Resources.Progress_Bar_Not_Seeding;
@@ -130,32 +178,6 @@
             this.progressBar.TabIndex = 13;
             this.progressBar.TabStop = false;
             // 
-            // remainingStats
-            // 
-            this.remainingStats.AutoSize = true;
-            this.remainingStats.BackColor = System.Drawing.Color.Transparent;
-            this.remainingStats.Font = new System.Drawing.Font("GiovanniITCTT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remainingStats.ForeColor = System.Drawing.Color.Chocolate;
-            this.remainingStats.Location = new System.Drawing.Point(414, 578);
-            this.remainingStats.Margin = new System.Windows.Forms.Padding(0);
-            this.remainingStats.Name = "remainingStats";
-            this.remainingStats.Size = new System.Drawing.Size(101, 15);
-            this.remainingStats.TabIndex = 5;
-            this.remainingStats.Text = "Time remaining:";
-            // 
-            // downloadSpeed
-            // 
-            this.downloadSpeed.AutoSize = true;
-            this.downloadSpeed.BackColor = System.Drawing.Color.Transparent;
-            this.downloadSpeed.Font = new System.Drawing.Font("GiovanniITCTT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downloadSpeed.ForeColor = System.Drawing.Color.Chocolate;
-            this.downloadSpeed.Location = new System.Drawing.Point(19, 578);
-            this.downloadSpeed.Margin = new System.Windows.Forms.Padding(0);
-            this.downloadSpeed.Name = "downloadSpeed";
-            this.downloadSpeed.Size = new System.Drawing.Size(87, 15);
-            this.downloadSpeed.TabIndex = 3;
-            this.downloadSpeed.Text = "Downloading:";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +185,8 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 624);
+            this.Controls.Add(this.optionMenu);
+            this.Controls.Add(this.settingsMenu);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.minimiseButton);
             this.Controls.Add(this.closeButton);
@@ -183,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.windowbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.optionMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -201,6 +226,8 @@
         private System.Windows.Forms.PictureBox bottomBar;
         private System.Windows.Forms.PictureBox imageBox;
         private AnimatedProgressBar progressBar;
+        private SettingsMenu settingsMenu;
+        private TransparentPictureBox optionMenu;
     }
 }
 

@@ -49,6 +49,7 @@ namespace TorrentInstaller
             initPlayButton();
             initTopBar();
             initDownloadBar();
+            initOptionMenuButton();
             CreateUpdaterThread();
         }
 
@@ -148,6 +149,16 @@ namespace TorrentInstaller
                                   getTimeString(toDownload / cds) + "\n" +
                                   "Download remaining: " +
                                   getSizeString(toDownload);
+        }
+
+        private void initOptionMenuButton()
+        {
+            optionMenu.Click += new EventHandler(settingsMenu.toggle);
+            settingsMenu.Visible = false;
+            optionMenu.Parent = imageBox;
+            // when changing the parent the location becomes relative to the new parent
+            optionMenu.Location = new Point(optionMenu.Location.X - optionMenu.Parent.Location.X,
+                                            optionMenu.Location.Y - optionMenu.Parent.Location.Y);
         }
 
         private void initDownloadSpeed()

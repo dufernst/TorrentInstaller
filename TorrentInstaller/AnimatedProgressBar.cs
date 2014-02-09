@@ -32,6 +32,8 @@ namespace TorrentInstaller
         /// </summary>
         public AnimatedProgressBar() : base()
         {
+            launcherState = LauncherStates.NOTSEEDING;
+
             init = false;
             animation = new System.Windows.Forms.PictureBox();
             head = new System.Windows.Forms.PictureBox();
