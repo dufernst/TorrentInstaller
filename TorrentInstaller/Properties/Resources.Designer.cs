@@ -63,6 +63,36 @@ namespace TorrentInstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _00006_12x9x24BPP_ {
+            get {
+                object obj = ResourceManager.GetObject("_00006_12x9x24BPP_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _00007_595x9x24BPP_ {
+            get {
+                object obj = ResourceManager.GetObject("_00007_595x9x24BPP_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _00025_17x7x24BPP_ {
+            get {
+                object obj = ResourceManager.GetObject("_00025_17x7x24BPP_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bg_Default {
             get {
                 object obj = ResourceManager.GetObject("Bg_Default", resourceCulture);
@@ -146,6 +176,96 @@ namespace TorrentInstaller.Properties {
         internal static System.Drawing.Bitmap PlayButtonPress {
             get {
                 object obj = ResourceManager.GetObject("PlayButtonPress", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Downloading {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Downloading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Downloading_Animation {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Downloading_Animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Downloading_Head {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Downloading_Head", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Not_Seeding {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Not_Seeding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Seeding {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Seeding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Seeding_Animation {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Seeding_Animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Updating {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Updating", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Updating_Animation {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Updating_Animation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Progress_Bar_Updating_Head {
+            get {
+                object obj = ResourceManager.GetObject("Progress_Bar_Updating_Head", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

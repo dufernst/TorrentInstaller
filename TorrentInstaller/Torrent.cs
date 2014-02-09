@@ -208,6 +208,11 @@ namespace TorrentInstaller
             return torrentManager.Complete;
         }
 
+        public TorrentState getTorrentState()
+        {
+            return torrentManager.State;
+        }
+
         public int getUsedPort()
         {
             return listenPort;

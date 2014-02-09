@@ -12,9 +12,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using MonoTorrent.Common;
 
 namespace TorrentInstaller
 {
+    enum LauncherStates
+    {
+        DOWNLOADING,
+        SEEDING,
+        UPDATING,
+        NOTSEEDING
+    }
+
     public partial class MainWindow : Form
     {
         public delegate void UpdateValuesDel();
@@ -60,7 +69,7 @@ namespace TorrentInstaller
         {
             setUploadSpeed(wtorrent.getAveragedUploadSpeed());
             setDownloadSpeed(wtorrent.getAveragedDownloadSpeed());
-            setProgress((int)(wtorrent.getProgress()));
+            setProgress(wtorrent.getProgress());
 
             if (!isComplete)
             {
@@ -71,7 +80,35 @@ namespace TorrentInstaller
                 }
             }
 
+            updateLauncherState();
+
             debugInfo.Text = wtorrent.getOtherStats();
+        }
+
+        private void updateLauncherState()
+        {
+            switch (wtorrent.getTorrentState())
+            {
+                case TorrentState.Downloading:
+                    progressBar.setState(LauncherStates.DOWNLOADING);
+                    break;
+                case TorrentState.Hashing:
+                case TorrentState.Metadata:
+                    progressBar.setState(LauncherStates.UPDATING);
+                    break;
+                case TorrentState.Seeding:
+                    progressBar.setState(LauncherStates.SEEDING);
+                    break;
+                case TorrentState.Error:
+                    // add an error message here
+                case TorrentState.Stopped:
+                case TorrentState.Stopping:
+                case TorrentState.Paused:
+                    progressBar.setState(LauncherStates.NOTSEEDING);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void initPlayButton()
@@ -97,16 +134,16 @@ namespace TorrentInstaller
 
         private void initDownloadBar()
         {
-            setProgress(0);
+            setProgress(0.0);
             initDownloadSpeed();
             initRemaining();
         }
 
-        private void setProgress(int progress)
+        private void setProgress(double progress)
         {
             int cds = (currentDownloadSpeed == 0 ? 1 : currentDownloadSpeed);
-            long toDownload = ((100 - progress) * wtorrent.getTorrentSize()) / 100;
-            downloadBar.Value = progress;
+            long toDownload = (long) (((100.0 - progress) * wtorrent.getTorrentSize()) / 100.0);
+            progressBar.setProgress(progress);
             remainingStats.Text = "Time remaining:           " +
                                   getTimeString(toDownload / cds) + "\n" +
                                   "Download remaining: " +
@@ -200,7 +237,11 @@ namespace TorrentInstaller
         private void playClick(object sender, EventArgs e)
         {
             if (isComplete)
+            {
                 playButton.Image = Properties.Resources.PlayButtonPress;
+                System.Diagnostics.Process.Start("Wow.exe");
+                this.Close();
+            }
         }
 
         private void playEnter(object sender, EventArgs e)

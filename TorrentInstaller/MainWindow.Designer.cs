@@ -29,32 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.downloadBar = new System.Windows.Forms.ProgressBar();
             this.debugInfo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.minimiseButton = new System.Windows.Forms.PictureBox();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.windowbar = new System.Windows.Forms.PictureBox();
             this.playButton = new System.Windows.Forms.Button();
             this.bottomBar = new System.Windows.Forms.PictureBox();
+            this.imageBox = new System.Windows.Forms.PictureBox();
+            this.progressBar = new TorrentInstaller.AnimatedProgressBar();
             this.remainingStats = new TorrentInstaller.TransparentLabel();
             this.downloadSpeed = new TorrentInstaller.TransparentLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimiseButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // downloadBar
-            // 
-            this.downloadBar.Location = new System.Drawing.Point(20, 534);
-            this.downloadBar.Margin = new System.Windows.Forms.Padding(0);
-            this.downloadBar.Name = "downloadBar";
-            this.downloadBar.Size = new System.Drawing.Size(592, 23);
-            this.downloadBar.Step = 1;
-            this.downloadBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.downloadBar.TabIndex = 2;
             // 
             // debugInfo
             // 
@@ -66,15 +57,6 @@
             this.debugInfo.Size = new System.Drawing.Size(77, 17);
             this.debugInfo.TabIndex = 4;
             this.debugInfo.Text = "Debug Info";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::TorrentInstaller.Properties.Resources.Bg_Default;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 480);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
             // 
             // minimiseButton
             // 
@@ -129,6 +111,25 @@
             this.bottomBar.TabIndex = 11;
             this.bottomBar.TabStop = false;
             // 
+            // imageBox
+            // 
+            this.imageBox.BackgroundImage = global::TorrentInstaller.Properties.Resources.Bg_Default;
+            this.imageBox.Location = new System.Drawing.Point(0, 24);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(800, 480);
+            this.imageBox.TabIndex = 12;
+            this.imageBox.TabStop = false;
+            // 
+            // progressBar
+            // 
+            this.progressBar.BackgroundImage = global::TorrentInstaller.Properties.Resources.Progress_Bar_Not_Seeding;
+            this.progressBar.Location = new System.Drawing.Point(19, 562);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(0);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(595, 9);
+            this.progressBar.TabIndex = 13;
+            this.progressBar.TabStop = false;
+            // 
             // remainingStats
             // 
             this.remainingStats.AutoSize = true;
@@ -162,26 +163,27 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 624);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.minimiseButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.windowbar);
             this.Controls.Add(this.remainingStats);
             this.Controls.Add(this.debugInfo);
             this.Controls.Add(this.downloadSpeed);
-            this.Controls.Add(this.downloadBar);
             this.Controls.Add(this.playButton);
             this.Controls.Add(this.bottomBar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.imageBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Cataclysm Launcher";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimiseButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bottomBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,7 +192,6 @@
         #endregion
 
         private System.Windows.Forms.Button playButton;
-        private System.Windows.Forms.ProgressBar downloadBar;
         private TransparentLabel downloadSpeed;
         private System.Windows.Forms.Label debugInfo;
         private TransparentLabel remainingStats;
@@ -198,7 +199,8 @@
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.PictureBox minimiseButton;
         private System.Windows.Forms.PictureBox bottomBar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox imageBox;
+        private AnimatedProgressBar progressBar;
     }
 }
 

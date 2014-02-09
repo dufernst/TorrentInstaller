@@ -135,6 +135,42 @@
   <ItemGroup>
     <None Include="Resources\00028[800x480x24BPP].jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00001[12x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00002[595x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00003[595x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00004[12x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00005[595x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00006[12x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00007[595x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00008[12x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00009[595x9x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00024[17x7x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00025[17x7x24BPP].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\00026[17x7x24BPP].jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
